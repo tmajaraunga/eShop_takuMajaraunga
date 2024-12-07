@@ -807,4 +807,28 @@
     "Description": "The Trek Xtreme hiking shoes by Raptor Elite are built to endure any trail. With their durable leather upper and rugged rubber sole, they offer excellent traction and protection. These shoes come in a timeless brown color that adds a touch of style to your outdoor adventures.",
     "Price": 135.99
   }
+  {
+    "Id": 102,
+    "Type": "Footwear",
+    "Brand": "Umbro",
+    "Name": "Umbro Soccer Boots/Cleats",
+    "Description": "The Umbro soccer boots are ones with a different. They are made of the strongest and best quality materials and endure rainy weather and very hot temperatures. They also have a tight grip which makes them even better for slippery turfs.",
+    "Price": 99.99
+  }
+    {
+    "Id": 103,
+    "Type": "Kids",
+    "Brand": "PixarToyCars",
+    "Name": "Customized Toy Car For 3+ year olds",
+    "Description": "The latest customizable toy car from PixarToyCars is a classic piece for kids. It is also a big bargain because it lasts for a lifetime but costs less than 30 bucks. It is truly for grabs!",
+    "Price": 23.99
+  }
+  {
+    "Id": 104,
+    "Type": "Kids",
+    "Brand": "Kidsnet",
+    "Name": "Challenge Bicycle for 8+ year olds",
+    "Description": "Challenge's kids' version of its bicycle renditions is one of the best projects it has embarked on. The bicycle provides a good balance for children learning to ride bicycles. The material used to build the bikes is also water proof.",
+    "Price": 249.99
+  }
 ]
