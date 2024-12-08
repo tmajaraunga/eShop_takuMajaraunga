@@ -79,5 +79,7 @@ public partial class CatalogContextSeed(
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+        // Updating the CatalogSourceEntry in CatalogContextSeed.cs for the new attribute, "gender"
+        public string gender {  get; set; }
     }
 }

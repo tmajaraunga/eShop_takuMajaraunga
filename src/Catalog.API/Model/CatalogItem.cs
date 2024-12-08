@@ -25,6 +25,9 @@ public class CatalogItem
 
     public CatalogBrand CatalogBrand { get; set; }
 
+    // Adding new attributre, gender, to the CatalogItem data model
+    public string gender { get; set; }
+
     // Quantity in stock
     public int AvailableStock { get; set; }
 

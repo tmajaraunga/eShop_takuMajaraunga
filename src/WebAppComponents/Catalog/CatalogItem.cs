@@ -7,6 +7,8 @@ public record CatalogItem(
     decimal Price,
     string PictureUrl,
     int CatalogBrandId,
+    // Updating the CreateItem() in CatalogApi.cs for the new attribute, "gender"
+    string gender,
     CatalogBrand CatalogBrand,
     int CatalogTypeId,
     CatalogItemType CatalogType);
