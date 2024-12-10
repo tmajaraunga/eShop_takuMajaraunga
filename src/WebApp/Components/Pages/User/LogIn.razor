@@ -10,10 +10,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var returnUrl = string.IsNullOrEmpty(ReturnUrl) || !Uri.TryCreate(ReturnUrl, UriKind.RelativeOrAbsolute, out _)
-            ? "/"
-            : ReturnUrl;
-        Nav.NavigateTo(returnUrl, forceLoad: true);
+        var returnUrl = ReturnUrl ?? "/";
+        var url = new Uri(returnUrl, UriKind.RelativeOrAbsolute);
+        Nav.NavigateTo(url.IsAbsoluteUri ? "/" : returnUrl);
         await base.OnInitializedAsync();
     }
 
