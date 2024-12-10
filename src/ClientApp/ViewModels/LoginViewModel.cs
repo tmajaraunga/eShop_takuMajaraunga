@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using eShop.ClientApp.Services;
 using eShop.ClientApp.Services.AppEnvironment;
 using eShop.ClientApp.Services.OpenUrl;
@@ -26,6 +26,8 @@ public partial class LoginViewModel : ViewModelBase
     [ObservableProperty] private ValidatableObject<string> _password = new();
 
     [ObservableProperty] private ValidatableObject<string> _userName = new();
+    private string _returnUrl = "/";
+    public string ReturnUrl { get; set; } = "/";
 
     public LoginViewModel(
         IOpenUrlService openUrlService, IAppEnvironmentService appEnvironmentService,
@@ -42,6 +44,11 @@ public partial class LoginViewModel : ViewModelBase
     public override async void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         base.ApplyQueryAttributes(query);
+        
+        if (query.TryGetValue("ReturnUrl", out var returnUrlObj) && returnUrlObj is string returnUrl)
+        {
+            ReturnUrl = Uri.IsWellFormedUriString(returnUrl, UriKind.RelativeOrAbsolute) ? returnUrl : "/";
+        }
 
         if (query.ValueAsBool("Logout"))
         {
