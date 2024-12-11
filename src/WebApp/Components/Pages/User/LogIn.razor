@@ -10,11 +10,26 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var returnUrl = ReturnUrl ?? "/";
-        var url = new Uri(returnUrl, UriKind.RelativeOrAbsolute);
-        Nav.NavigateTo(url.IsAbsoluteUri ? "/" : returnUrl);
+        try
+        {
+            var homePageUrl = "https://localhost:7298/";
+            var returnUrl = !string.IsNullOrEmpty(ReturnUrl) && Uri.IsWellFormedUriString(ReturnUrl, UriKind.RelativeOrAbsolute)
+                ? ReturnUrl
+                : homePageUrl;
+
+            var url = new Uri(returnUrl, UriKind.RelativeOrAbsolute);
+
+            Nav.NavigateTo(url.IsAbsoluteUri ? homePageUrl : returnUrl);
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"Error during navigation: {ex.Message}");
+            Nav.NavigateTo("https://localhost:7298/");
+        }
+
         await base.OnInitializedAsync();
     }
+
 
     public static string Url(NavigationManager nav)
         => $"user/login?returnUrl={Uri.EscapeDataString(nav.ToBaseRelativePath(nav.Uri))}";
